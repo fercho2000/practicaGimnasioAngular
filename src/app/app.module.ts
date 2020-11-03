@@ -11,11 +11,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { EncabezadoComponent } from './encabezado/encabezado.component';
+import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
+import { ListadoClientesComponent } from './listado-clientes/listado-clientes.component';
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    EncabezadoComponent
+    EncabezadoComponent,
+    ListadoClientesComponent
   ],
   imports: [
     BrowserModule,
@@ -24,7 +27,8 @@ import { EncabezadoComponent } from './encabezado/encabezado.component';
     BrowserAnimationsModule,
     AccordionModule.forRoot(),
     ReactiveFormsModule,
-    NgxSpinnerModule
+    NgxSpinnerModule,
+    BsDropdownModule.forRoot()
   ],
   providers: [
     AngularFireAuth
