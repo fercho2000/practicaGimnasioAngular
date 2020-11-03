@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "gimnasio-38455": {
+      "hosting": {
+        "gimnasio": [
+          "gimnasio-38455"
+        ]
+      }
+    }
+  }
+}
