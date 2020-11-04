@@ -1,49 +1,23 @@
 <div class="container mt-5">
     <h4>Listado de clientes</h4>
+
+    <div class="form-group">
+
+        <input type="text" class="form-control" placeholder="Busque un cliente">
+    </div>
+
     <div class="row">
-        <div class="col-sm-3">
+        <div class="col-sm-3" *ngFor="let cliente of clientes">
             <div class="card" style="width: 18rem;">
-                <img src="https://www.flaticon.com/svg/static/icons/svg/194/194929.svg"
-                    class="card-img-top imgCliente" alt="...">
+                <img [src]="cliente.imgUrl" class="card-img-top imgCliente" alt="...">
                 <div class="card-body">
-                    <h5 class="card-title">Jose Usuga</h5>
+                    <p>{{cliente.id}}</p>
+                    <h5 class="card-title">{{cliente.nombre}} {{cliente.apellido}}</h5>
                     <a href="#" class="card-link">Editar</a>
                     <a href="#" class="card-link text-danger">Desactivar</a>
                 </div>
             </div>
         </div>
-        <div class="col-sm-3">
-            <div class="card" style="width: 18rem;">
-                <img src="https://www.flaticon.com/svg/static/icons/svg/194/194935.svg" class="card-img-top imgCliente"
-                    alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">Jose Usuga</h5>
-                    <a href="#" class="card-link">Editar</a>
-                    <a href="#" class="card-link text-danger">Desactivar</a>
-                </div>
-            </div>
-        </div>
-        <div class="col-sm-3">
-            <div class="card" style="width: 18rem;">
-                <img src="https://www.flaticon.com/svg/static/icons/svg/194/194938.svg" class="card-img-top imgCliente"
-                    alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">Jose Usuga</h5>
-                    <a href="#" class="card-link">Editar</a>
-                    <a href="#" class="card-link text-danger">Desactivar</a>
-                </div>
-            </div>
-        </div>
-        <div class="col-sm-3">
-            <div class="card" style="width: 18rem;">
-                <img src="https://www.flaticon.es/svg/static/icons/svg/194/194917.svg" class="card-img-top imgCliente"
-                    alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">Jose Usuga</h5>
-                    <a href="#" class="card-link">Editar</a>
-                    <a href="#" class="card-link text-danger">Desactivar</a>
-                </div>
-            </div>
-        </div>
+
     </div>
 </div>

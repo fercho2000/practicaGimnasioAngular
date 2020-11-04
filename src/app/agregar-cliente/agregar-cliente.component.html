@@ -1,0 +1,56 @@
+<div class="container mt-5">
+    <form>
+
+        <div class="row">
+            <div class="col-sm-4">
+                <div class="form-group">
+                    <label for="nombre">Nombre</label>
+                    <input type="text" class="form-control" id="nombre" placeholder="Agregue el nombre">
+                </div>
+            </div>
+
+            <div class="col-sm-4">
+                <div class="form-group">
+                    <label for="apellido">Apellido</label>
+                    <input type="text" class="form-control" id="apellido" placeholder="Agregue el apellido">
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="form-group">
+                    <label for="email">Correo</label>
+                    <input type="text" class="form-control" id="email" placeholder="Agregue el correo">
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="form-group">
+                    <label for="cedula">Cédula</label>
+                    <input type="text" class="form-control" id="cedula" placeholder="Agregue la cédula">
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="form-group">
+                    <label for="fechaNacimiento">Fecha de nacimiento</label>
+                    <input type="date" class="form-control" id="fechaNacimiento" placeholder="Agregue el correo">
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="form-group">
+                    <label for="telefono">Telefono</label>
+                    <input type="tel" class="form-control" id="telefono" placeholder="Agregue el correo">
+                </div>
+            </div>
+
+            <div class="col-sm-12">
+                <div class="form-group">
+                    <label for="imagen">Imagen</label>
+                    <input type="file" class="form-control-file" id="imagen" placeholder="Agregue su imagen">
+                </div>
+            </div>
+            <div class="col-sm-12 ">
+                <progressbar [value]="22" type="danger" [striped]="true">22%</progressbar>
+            </div>
+            <br><br>
+            <button class="btn btn-primary">Agregar</button>
+        </div>
+    </form>
+</div>
