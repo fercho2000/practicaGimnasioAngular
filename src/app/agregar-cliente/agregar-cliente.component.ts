@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AngularFireStorage } from '@angular/fire/storage';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
@@ -9,7 +10,8 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 export class AgregarClienteComponent implements OnInit {
 
   formularioCliente: FormGroup;
-  constructor(private formBuilder: FormBuilder) { }
+  porcentajeDeSubida: number = 0;
+  constructor(private formBuilder: FormBuilder, private storage: AngularFireStorage) { }
 
   ngOnInit(): void {
     this.formularioCliente = this.formBuilder.group(
@@ -17,9 +19,37 @@ export class AgregarClienteComponent implements OnInit {
         nombre: ['', Validators.required],
         apellido: ['', Validators.required],
         correo: ['', Validators.compose([Validators.required, Validators.email])],
-        cedula:['']
+        cedula: [''],
+        fechaNacimiento: ['', Validators.required],
+        telefono: [''],
+        imgUrl: ['', Validators.required]
       }
-    )
+    );
   }
 
+  agregarCliente() {
+
+    
+  }
+
+  subirImagen(evento) {
+    let nombreArchivo = new Date().getTime().toString();
+    const archivo = evento.target.files[0];
+    const extensionArchivo = archivo.name.toString().substring(archivo.name.toString().lastIndexOf('.'));
+    const ruta = `clientes/${nombreArchivo}${extensionArchivo}`;
+    const referencia = this.storage.ref(ruta);
+    const tarea = referencia.put(archivo);
+    tarea.then((respuesta) => {
+      if (respuesta.state === "success") {
+        referencia.getDownloadURL().subscribe((url) => {
+          console.log("url imagen....", url);
+        });
+      }
+
+    });
+    tarea.percentageChanges().subscribe((porcentaje) => {
+      this.porcentajeDeSubida = parseInt(porcentaje.toString());
+    });
+
+  }
 }
