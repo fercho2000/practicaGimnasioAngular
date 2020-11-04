@@ -14,10 +14,8 @@ export class AppComponent {
   cargando: boolean = true;
   constructor(private auth: AngularFireAuth) {
     this.auth.user.subscribe((data) => {
-
       this.cargando = false;
       this.usuario = data;
-      console.log("datos del usuario...", data);
 
     });
 

@@ -1,0 +1,41 @@
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-sm-8">
+            <h4>Precios</h4>
+            <ul>
+                <li>Precio de semana</li>
+                <li>Suscripción mensual</li>
+            </ul>
+        </div>
+        <div class="col-sm-4">
+            <h4>Agregar/Editar</h4>
+            <form [formGroup]="formularioPrecio">
+                <div class="form-group">
+                    <label for="nombre">nombre </label>
+                    <input class="form-control" type="text" formControlName="nombre">
+                </div>
+                <div class="form-group">
+                    <label for="costo">costo </label>
+                    <input class="form-control" type="number" formControlName="costo">
+                </div>
+                <div class="form-group">
+                    <label for="duracion">duracion </label>
+                    <input class="form-control" type="number" formControlName="duracion">
+                </div>
+                <div class="form-group">
+                    <label>Tipo Duración :</label>
+                    <select class="form-control" formControlName="tipoDuracion">
+                        <option value="1">Dia</option>
+                        <option value="2">Semana</option>
+                        <option value="3"> Quincena</option>
+                        <option value="4">Mes</option>
+                        <option value="5">Año</option>
+                    </select>
+                </div>
+                <button [disabled]="formularioPrecio.invalid" class="btn btn-primary "
+                    (click)="agregar()">Agregar</button>
+                <button [disabled]="formularioPrecio.invalid" class="btn btn-warning">Editar</button>
+            </form>
+        </div>
+    </div>
+</div>
