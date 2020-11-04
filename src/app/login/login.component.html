@@ -1,6 +1,3 @@
-<!-- <p>login works!</p> -->
-<!-- <p>Please login.</p>
-  <button (click)="login()">Login with Google</button> -->
 
 <div class="container">
     <div class="text-center">
@@ -27,7 +24,7 @@
             <div class="alert alert-danger" role="alert"
                 *ngIf="formulario.controls['password'].invalid && formulario.controls['password'].dirty ">
                 <span *ngIf="formulario.controls['password'].errors.required">La contraseña es requerido</span>
-                <!-- <span *ngIf="formulario.controls['email'].errors.email ">Correo no es valido</span> -->
+
             </div>
         </div>
         <button [disabled]="!formulario.valid" type="submit" class="btn btn-primary"

@@ -84,8 +84,10 @@
                 </progressbar>
             </div>
             <br><br>
-            <button [disabled]="formularioCliente.invalid" class="btn btn-primary"
+            <button *ngIf="!esEditable" [disabled]="formularioCliente.invalid && !urlImagen" class="btn btn-primary"
                 (click)="agregarCliente()">Agregar</button>
+            <button *ngIf="esEditable" [disabled]="formularioCliente.invalid && !urlImagen" class="btn btn-primary"
+                (click)="editarCliente()">Editar</button>
         </div>
     </form>
 </div>
