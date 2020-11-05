@@ -17,4 +17,23 @@ export class Inscripcion {
         this.impuesto = null;
         this.total = null;
     }
+
+    validar() {
+        let respuesta = {
+            esValido: false,
+            mensaje: ''
+        }
+        if (this.fecha == null || this.fecha == undefined) {
+            respuesta.esValido = false;
+            respuesta.mensaje = 'No tiene fecha de inicio';
+            return respuesta;
+        }
+
+        if (this.fechaFinal == null || this.fechaFinal == undefined) {
+            respuesta.esValido = false;
+            respuesta.mensaje = 'No tiene fechafinalo';
+            return respuesta;
+        }
+
+    }
 }

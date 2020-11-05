@@ -93,10 +93,15 @@ export class InscripcionComponent implements OnInit {
         this.inscripcion.fechaFinal = fechaFinal;
       }
     } else {
+      this.precioSeleccionado = new Precio();
+      this.inscripcion.fecha = null;
+      this.inscripcion.fechaFinal = null;
       this.inscripcion.precio = null;
       this.inscripcion.subTotal = 0;
       this.inscripcion.impuesto = 0;
       this.inscripcion.total = 0;
     }
   }
+
+
 }
