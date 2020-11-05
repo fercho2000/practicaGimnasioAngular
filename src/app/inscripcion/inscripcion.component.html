@@ -1,10 +1,48 @@
 <div class="container mt-5">
     <div class="row">
         <div class="col-sm-6">
-            <app-seleccionar-cliente ></app-seleccionar-cliente>
+            <app-seleccionar-cliente [nombre]="clienteSeleccionado.nombre" (seleccionoCliente)="asignarCliente($event)"
+                (canceloCliente)="eliminarCliente()">
+            </app-seleccionar-cliente>
+
+            <div class="form-group">
+                <label for="">Precio</label>
+                <select class="form-control" (change)="seleccionarPrecio($event.target.value)">
+                    <option value="">Selecciona un precio</option>
+                    <option *ngFor="let item of precio" [value]="item.id">{{item.nombre }}</option>
+
+                </select>
+
+                <div class="form-group">
+                    <label for="">Fecha inicio</label>
+                    <input type="text" disabled class="form-control" [value]="inscripcion.fecha | date">
+                </div>
+                <div class="form-group">
+                    <label for="">Fecha finalizada</label>
+                    <input type="text" disabled class="form-control" [value]="inscripcion.fechaFinal | date">
+                </div>
+
+                <div class="form-group">
+                    <label for="">Sub total</label>
+                    <input type="number" disabled class="form-control" [value]="inscripcion.subTotal">
+                </div>
+                <div class="form-group">
+                    <label for="">Impuesto</label>
+                    <input type="number" disabled class="form-control" [value]="inscripcion.impuesto">
+                </div>
+                <div class="form-group">
+                    <label for="">Total</label>
+                    <input type="number" disabled class="form-control" [value]="inscripcion.total">
+                </div>
+            </div>
+   
+
+            <button class="btn btn-primary" (click)="guardar()">Guardar</button>
         </div>
         <div class="col-sm-6">
-
+            <div *ngIf="clienteSeleccionado.imgUrl" class="imgCliente">
+                <img [src]="clienteSeleccionado.imgUrl">
+            </div>
         </div>
     </div>
 </div>
